@@ -1,29 +1,40 @@
-// 防抖
-function debounce(fn, time){
+// 防抖  就是连续多次点击只出发一次
+
+function debounce(fn){
+    const time = 1000
     let delay
+
     return function(){
-        let context = this;
-        let args = arguments;
+        const context = this
+        const args = arguments
+
         if(delay){
             clearTimeout(delay)
         }
+
         delay = setTimeout(() => {
             fn.apply(context, args)
         }, time);
     }
+
 }
 
-// 节流
+//节流  就是每一段时间产生一次有效执行
+function throttle(fn){
+    const time = 1000
 
-function throttle(fn, time){
-    let previous = 0
-    return function(){
-        let context = this;
-        let args = arguments;
-        const now = Date.now()
-        if(now - previous > time){
+    let pastTime
+
+    return ()=>{
+        const args = arguments
+        const context = this
+        const now = new Date()
+        if(!pastTime || now - pastTime > time){
+            pastTime = now
             fn.apply(context, args)
-            previous = now
         }
     }
 }
+
+
+

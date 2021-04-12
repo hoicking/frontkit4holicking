@@ -1,9 +1,5 @@
-const a = '[]{}<>'
-const b = '{<>}'
-
-
-const array = a.split('')
-
-const left = ['{', '[', '<']
-
-const right
+let b = 10;
+(function b(){ 
+    b = 20; 
+    console.log(b); 
+})();
