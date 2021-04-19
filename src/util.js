@@ -37,4 +37,9 @@ function throttle(fn){
 }
 
 
+//类型判断
+function checkType(param){
+    return Object.prototype.toString.call(param)
+}
+
 
